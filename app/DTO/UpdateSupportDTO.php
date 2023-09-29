@@ -10,7 +10,7 @@ class UpdateSupportDTO
         public string $id,
         public string $subject,
         public string $status,
-        public string $body,
+        public string $description,
     )
     {
         
@@ -22,7 +22,7 @@ class UpdateSupportDTO
             $request->id,
             $request->subject,
             'a',
-            $request->body
+            $request->description
         );
     }
 }

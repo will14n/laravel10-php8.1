@@ -19,7 +19,7 @@ class SupportEloquentORM implements SupportRepositoryInterface
             ->where(Function ($query) use ($filter) {
                 if ($filter) {
                     $query->where('subject', $filter);
-                    $query->orWhere('body', 'like', "%{$filter}%");
+                    $query->orWhere('description', 'like', "%{$filter}%");
                     
                 }
             })
@@ -43,7 +43,7 @@ class SupportEloquentORM implements SupportRepositoryInterface
     }
     public function new(CreateSupportDTO $dto): stdClass
     {
-        $support = $this->model->create->create(
+        $support = $this->model->create(
             (array) $dto
         );
 

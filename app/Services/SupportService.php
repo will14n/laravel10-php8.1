@@ -29,7 +29,7 @@ class SupportService
 
     public function new(CreateSupportDTO $dto): stdClass
     {
-        $this->repository->new($dto);   
+        return $this->repository->new($dto);   
     }
 
     public function update(UpdateSupportDTO $dto): stdClass|null
