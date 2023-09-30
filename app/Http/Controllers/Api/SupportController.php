@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Adapters\ApiAdapter;
 use App\DTO\Supports\CreateSupportDTO;
 use App\DTO\Supports\UpdateSupportDTO;
 use App\Http\Controllers\Controller;
@@ -28,16 +29,7 @@ class SupportController extends Controller
             filter: $request->filter
         );
 
-        return SupportResource::collection($supports->items())->additional([
-            'meta' => [
-                'total' => $supports->total(),
-                'isFirstPage' => $supports->isFirstPage(),
-                'isLastPage' => $supports->isLastPage(),
-                'currentPage' => $supports->currentPage(),
-                'getNumberNextPage' => $supports->isLastPage(),
-                'getNumberPreviousPage' => $supports->isLastPage(),
-            ]
-        ]);
+        return ApiAdapter::toJson($supports);
     }
 
     /**
