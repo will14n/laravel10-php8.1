@@ -27,11 +27,11 @@ class PaginationPresenter implements PaginationInterface
     }
     public function isFirstPage():bool
     {
-        return $this->paginator->orFirstPage();
+        return $this->paginator->onFirstPage();
     }
     public function isLastPage():bool
     {
-        return $this->paginator->currentPage() === $this->paginator->lastPag();
+        return $this->paginator->currentPage() === $this->paginator->lastPage();
     }
     public function currentPage(): int
     {
@@ -41,7 +41,7 @@ class PaginationPresenter implements PaginationInterface
     {
         return $this->paginator->currentPage() + 1;
     }
-    public function getNumberPrevioesPage(): int
+    public function getNumberPreviousPage(): int
     {
         return $this->paginator->currentPage() - 1;
     }
